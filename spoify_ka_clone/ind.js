@@ -98,12 +98,14 @@ const show_display = (element) => {
     li3.className = 'item';
     const span3 = document.createElement('span');
     span3.className = 'underline-just';
+    span3.classList.add("Alb");
     span3.textContent = `${element.data.name}`;
     li3.appendChild(span3);
-
+    
     const li4 = document.createElement('li');
     li4.className = 'item';
     const span4 = document.createElement('span');
+    span4.className = 'DateOfPub';
     span4.textContent = `${element.data.date.year}`;
     li4.appendChild(span4);
 
