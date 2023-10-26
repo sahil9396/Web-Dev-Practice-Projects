@@ -1,0 +1,163 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+main {
+    width: 50%;
+    min-width: 300px;
+    margin: 3.8em auto;
+    box-shadow: 0px 5px 52px -7px;
+    padding-top: 1em;
+    border-radius: 10px;
+    transition: all 1s ease;
+}
+
+h1 {
+
+    text-align: center;
+    font-size: 2rem;
+    margin-top: 0.5em;
+}
+
+.enter {
+    width: 70%;
+    margin: 1em auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 2em;
+    font-size: 1.5rem;
+
+}
+
+
+#textinput {
+    margin-bottom: 1.5em;
+    width: 70%;
+    min-width: 206px;
+    border: 0;
+    font-size: 1.5rem;
+    border-radius: 5px;
+    background-color: white;
+    text-align: center;
+
+}
+
+button {
+    width: 65%;
+    height: 39px;
+
+    margin-bottom: 1em;
+    padding: 0.3em 0 0.5em 0;
+
+    background-color: rgb(78, 233, 233);
+
+    border: 0;
+    border-radius: 5px;
+
+    cursor: pointer;
+
+    font-size: 1.2rem;
+}
+
+
+.invisble-info {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    /* display: none; */
+}
+
+.img-replacement {
+    width: 150px;
+    margin-bottom: 0.3em;
+    object-fit: cover;
+    object-position: center;
+}
+
+img {
+    width: 100%;
+}
+
+.calcius {
+    font-size: 1.75rem;
+    margin-bottom: 0.3em;
+}
+
+.state-present {
+    font-size: 2rem;
+    color: rgb(104, 100, 100);
+    margin-bottom: 0.5em;
+}
+
+.more-info {
+    width: 100%;
+    max-width: 800px;
+    display: grid;
+    /* grid-template-columns: repeat(auto-fill , minmax(70px , 207px)); */
+    grid-template-columns: repeat(1, 1fr);
+    justify-content: center;
+    padding: 0 1.5em;
+    margin-bottom: 2em;
+    gap: 1em;
+}
+
+.box {
+
+    background-color: rgb(177, 171, 171);
+    border-radius: 10px;
+    padding: 1em;
+    text-align: center;
+    font-weight: 300;
+    font-size: 1.25rem;
+}
+
+.error_box {
+    width: 70%;
+    margin: 1em 0;
+    font-size: 2rem;
+    text-align: center;
+}
+
+@media (width >=1050px) {
+
+
+    .enter {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    #textinput {
+        margin-top: 0.7em;
+        height: 39px;
+        margin-right: 0.5em;
+    }
+
+    .calcius {
+        font-size: 2rem;
+    }
+
+    .state-present {
+        font-size: 2.5rem;
+    }
+
+    .more-info {
+        grid-template-columns: repeat(3, 1fr);
+        /* grid-template-columns: repeat(auto-fit , minmax); */
+    }
+
+    .box {
+        font-size: 1.5rem;
+    }
+
+    .error_box {
+        font-size: 3rem;
+    }
+
+}

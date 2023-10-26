@@ -1,0 +1,256 @@
+:root {
+    --list_width: 90%;
+}
+
+@mixin list_width_with_centering {
+    width: var(--list_width);
+    margin: 0 auto;
+}
+
+@mixin image_container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+}
+
+@mixin centering_along_row($spce ) {
+    display: flex;
+    justify-content: $spce;
+    align-items: center;
+}
+
+@mixin centering_along_col {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+@mixin grid_col_for_list() {
+    list-style: none;
+    display: grid;
+    grid-template-columns: 3em 3fr 2.5fr 1.5fr 1fr;
+}
+
+
+main {
+    display: grid;
+    grid-template-columns: 20% auto;
+    gap: 1em;
+    padding: 1em;
+
+}
+
+aside {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    position: sticky;
+    top: 0;
+
+    .aside-child {
+        padding: 1em;
+        border-radius: 20px;
+
+        .box,
+        .Library {
+            display: flex;
+            align-items: center;
+            gap: 0.7em;
+            margin-bottom: 0.8em;
+
+            .img-container {
+                height: 45px;
+                width: 45px;
+                @include image_container();
+
+            }
+
+            .PLayslit {
+                display: inline-block;
+                border-radius: 15px;
+                padding: 1em 0.5em;
+
+            }
+        }
+    }
+}
+
+.main-focus {
+
+    border-radius: 20px;
+    overflow: hidden;
+
+    .upper {
+        display: flex;
+        flex-direction: column;
+        gap: 1em;
+        padding: 0 1.5em;
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            margin: 0.5em 0 0.25em 0;
+
+            .toggle-arrow {
+                display: flex;
+
+                .circle-for-arrow {
+                    width: 50px;
+                    height: 50px;
+                    border-radius: 50%;
+                    margin-right: 0.1em;
+                    @include centering_along_row(center);
+                }
+            }
+        }
+
+        article {
+            display: flex;
+            margin: 0.5em 0 1.5em 0;
+
+
+            .img-container-article {
+                height: 300px;
+                width: 300px;
+                @include image_container();
+                font-size: 8rem;
+            }
+
+            .details-article {
+                display: flex;
+                flex-direction: column;
+                justify-content: space-evenly;
+                padding-left: 3em;
+            }
+
+        }
+    }
+}
+
+.keep-right {
+    position: absolute;
+    right: 0.5%;
+    font-size: 1.5rem;
+}
+
+// the pause and play button position
+
+.songlist {
+    .songlist-upper {
+        width: 95%;
+        margin: 0 auto;
+        padding-bottom: 1em;
+        border-bottom: 2px solid rgb(194, 194, 194);
+
+        .play-pause-box {
+            margin-bottom: 0.2em;
+        }
+
+
+        .titles {
+            @include grid_col_for_list();
+            @include list_width_with_centering();
+            grid-template-columns: 3em 3fr 2.5fr 1.5fr 0.79fr;
+        }
+    }
+
+}
+
+
+.songlist-down {
+    margin-top: 1em;
+    margin: 0 auto;
+    @include list_width_with_centering();
+
+    .down-list {
+        // width: 90%;
+        @include grid_col_for_list();
+        margin: 1em 0;
+        padding: 0.5em 0 0.5em 2em;
+        border-radius: 20px;
+        align-items: center;
+    }
+
+
+}
+
+.item {
+    display: flex;
+    gap: 0.5em;
+
+
+    .image-contain {
+        height: 50px;
+        width: 50px;
+        object-fit: cover;
+        object-position: center;
+        @include centering_along_col();
+
+        img {
+            width: 100%;
+        }
+
+    }
+}
+
+.more-details {
+    @include centering_along_col();
+    align-items: baseline;
+}
+
+footer {
+    position: sticky;
+    bottom: 0;
+    height: 120px;
+    width: 100%;
+    padding: 1.5em;
+    @include centering_along_row(space-between);
+
+
+    .item {
+        align-items: center;
+
+        .image-contain {
+            height: 120px;
+            width: 120px;
+            @include centering_along_col();
+            border-radius: 25px;
+            overflow: hidden;
+
+            img {
+                width: 100%;
+            }
+        }
+    }
+
+    .control-center {
+        margin-left: 15em;
+        width: 40%;
+        @include centering_along_col();
+
+        .changer {
+            padding-bottom: 0.5em;
+
+            i {
+                font-size: 3.5rem;
+            }
+        }
+
+        input[type="range"] {
+            width: 100%;
+        }
+    }
+
+    .other-stuff {
+        width: 13.5%;
+        @include centering_along_row(space-evenly);
+        gap: .5em;
+
+        i {
+            font-size: 1.5rem;
+        }
+
+    }
+}

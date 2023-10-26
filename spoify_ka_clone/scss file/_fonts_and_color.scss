@@ -1,0 +1,209 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    position: relative;
+    // width: 100%;
+}
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+}
+
+@mixin image_container_bg_color {
+    background: linear-gradient(145deg, rgba(70, 9, 244, 1) 1%, rgba(124, 110, 231, 1) 46%, rgba(177, 208, 219, 1) 96%);
+    color: white;
+}
+
+.aside-child {
+    background-color: rgb(35, 25, 25);
+    color: rgb(214, 214, 214);
+    font-size: 1.75rem;
+    font-weight: 500;
+}
+
+main {
+    background-color: black;
+    font-family: 'Roboto', sans-serif;
+}
+
+aside {
+    .aside-child {
+        background-color: rgb(35, 25, 25);
+        color: rgb(214, 214, 214);
+        font-size: 1.75rem;
+        font-weight: 500;
+
+
+        .img-container {
+            @include image_container_bg_color();
+
+        }
+
+        .PLayslit {
+            background-color: rgb(65, 61, 61);
+            color: white;
+            font-size: 1.2rem;
+
+            &:hover{
+                background-color: rgb(122, 120, 120);
+            }
+        }
+
+        .details {
+
+            font-size: 1rem;
+
+            p {
+                font-size: 1.25rem;
+            }
+        }
+    }
+}
+
+.box:hover ,.Library:hover{
+    color: white;
+    transition: color 1s;
+    font-size: 1.2em;
+    transition: font-size 0.5s;
+}
+
+
+.main-focus {
+
+    .upper {
+        header {
+            color: white;
+            font-size: 2.7rem;
+
+            .toggle-arrow {
+
+                .circle-for-arrow {
+                    background-color: rgb(40, 13, 117);
+                    color: white;
+                }
+            }
+        }
+
+        article {
+            .img-container-article {
+                @include image_container_bg_color();
+                font-size: 8rem;
+            }
+
+            .details-article {
+                color: white;
+                font-size: medium;
+
+                span {
+                    text-align: start;
+                    font-weight: bold;
+                    font-size: 1.2rem;
+                }
+
+                .Liked-Songs {
+                    font-size: 8rem;
+                    font-weight: 1000;
+                }
+            }
+
+        }
+    }
+}
+
+.upper {
+    background: linear-gradient(201deg, rgba(82, 58, 158, 1) 35%, rgba(42, 30, 81, 1) 100%);
+}
+
+.songlist {
+    background: linear-gradient(201deg, #1F173A 35%, rgba(35, 25, 25, 1) 100%);
+
+    .songlist-upper {
+        width: 95%;
+        font-size: 2rem;
+        color: white;
+
+        border-bottom: 2px solid rgb(194, 194, 194);
+        margin: 0 auto;
+        padding-bottom: 1em;
+
+        .play-pause-box {
+            font-size: 7rem;
+            // padding: 0.1em
+        }
+
+        .titles {
+            font-size: 1rem;
+            line-height: 0.2em;
+        }
+    }
+
+}
+
+.down-list {
+    color: white;
+
+    .just_heart {
+        font-size: 1.25rem;
+        color: rgb(83, 220, 83);
+    }
+
+    .more-details {
+        font-size: 1rem;
+
+        span{
+            text-align: start;
+        }
+    }
+}
+
+.SoneName{
+    font-size: 1.2rem;
+    color: white;
+
+    &:hover, &:focus{
+        border-bottom: 3px solid white;
+    }
+}
+.underline-just{
+    &:hover, &:focus{
+        border-bottom: 3px solid white;
+    }
+}
+
+.down-list:hover{
+    background-color: rgb(49, 47, 47);
+    transition: all 0.2s ease-in-out;
+    color: white;
+}
+
+footer {
+    background-color: black;
+    color: white;
+
+    .control-center {
+        .changer {
+            i {
+                font-size: 3.5rem;
+            }
+        }
+    }
+
+    .other-stuff {
+        i {
+            font-size: 1.5rem;
+        }
+
+    }
+
+}
+
+i{
+    color: rgb(200, 230, 239);
+}
+
+i:hover{
+    color: white;
+}

@@ -1,0 +1,104 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+}
+
+@import "_upper.scss";
+
+section {
+    @include layout();
+    max-width: 800px ;
+    min-width: 317px;
+
+    border-radius: 10px;
+    flex-direction: column;
+    align-items: center;
+    background-color: lightgray;
+
+
+
+    .title-thing {
+        @include layout();
+        width: 90%;
+        align-items: baseline;
+        justify-content: flex-end;
+        border-bottom: 1px solid black;
+        padding: 0.2em 1em;
+        position: relative;
+        margin-top: 0.35em;
+        margin-bottom: 1em;
+
+
+
+        h1 {
+            position: absolute;
+            bottom: 0;
+            left: 3%;
+        }
+
+        button {
+            width: 20%;
+            min-width: 48px;
+            min-height: 48px;
+            @include border_and_outline();
+            background-color: #9f6060;
+            font-size: 0.98rem;
+            color: white;
+
+            &:focus, &:hover{
+                box-shadow:  2px 2px 1px;
+            }
+        }
+
+    }
+
+    .items_container {
+        @include layout();
+        flex-direction: column;
+        // align-items: center;
+        width: 100%;
+
+        .items {
+            @include layout();
+            width: 85%;
+            justify-content: flex-start;
+            margin-bottom: 0.5em;
+            position: relative;
+
+            input {
+                margin-right: 1em;
+                min-width: 25px;
+                min-height: 25px;
+            }
+
+            p {
+                font-size: 1.25em;
+            }
+            i{
+                position: absolute;
+                right: 11%;
+                bottom: 12%;
+
+                font-size: 1.5rem;
+                opacity: 60%;
+                cursor: pointer;
+                display: block;
+                
+                &:hover{
+                    opacity: 80%;
+                    transform: scale(1.25) ;
+                    transition: all 300ms ease-in-out;
+
+                }
+            }
+        }
+    }
+
+}

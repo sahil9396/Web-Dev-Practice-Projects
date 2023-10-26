@@ -1,0 +1,57 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.darkthethinng {
+  background-color: black;
+}
+
+aside {
+  height: 800px;
+  position: absolute;
+  left: 0%;
+  bottom: 39%;
+  overflow: hidden;
+}
+
+.bar {
+  height: 500px;
+  width: 300px;
+  background-color: rgb(38, 14, 147);
+  position: relative;
+  left: -100%;
+}
+
+@keyframes moverigh {
+  from {
+    left: 0;
+  }
+  to {
+    position: relative;
+    left: 100%;
+  }
+}
+.container {
+  height: 67px;
+  width: 5%;
+  margin: 0 auto;
+  background-color: grey;
+  padding: 0.5em;
+  margin-top: 30em;
+  border-radius: 60px;
+  position: relative;
+}
+.container .circle {
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+  background-color: white;
+  position: absolute;
+  transition: all 1s ease;
+}
+.container .righty {
+  transition: all 1s ease;
+  right: 9%;
+}/*# sourceMappingURL=index.css.map */

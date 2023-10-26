@@ -1,0 +1,93 @@
+@mixin border_and_outline {
+    border-radius: 10px;
+    border: 1px solid black;
+    outline: none;
+    margin: 0.15em;
+}
+
+@mixin layout() {
+    width: 70%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+}
+
+main {
+    width: 100%;
+    margin-top: 1.5em;
+    padding-top: 1em;
+    position: relative;
+
+    label {
+        display: none;
+    }
+
+    form {
+        @include layout();
+        max-width: 800px;
+        min-width: 317px;
+
+        padding: 0.5em 0;
+        background-color: lightgray;
+        border-radius: 10px;
+        margin-bottom: 1.5em;
+        align-items: center;
+        position: sticky;
+        // margin: 10px auto;
+        top: 0;
+
+        input[type="text"] {
+            width: 70%;
+            @include border_and_outline();
+            padding-left: 1em;
+
+
+            &:focus,
+            &:hover {
+                box-shadow: 2px 2px 1px;
+            }
+        }
+
+        button {
+            width: 20%;
+            min-width: 48px;
+            min-height: 48px;
+            max-width: 95px;
+            max-height: 90px;
+            @include border_and_outline();
+            background-color: #4caf50;
+            // background-color: rgb(58, 167, 58);
+            font-size: 1.2rem;
+            color: white;
+
+            &:focus,
+            &:hover {
+                box-shadow: 2px 2px 1px;
+            }
+        }
+    }
+}
+
+@media (width>=1000px) {
+    form{
+        padding: 1.5em;
+    }
+    input[type="text"]{
+        font-size: 1.8rem; 
+        padding: 1.2rem 0;
+    }
+    form button{
+        font-size: 3.8rem !important;
+    }
+    .items p {
+        font-size: 2.5em !important;
+        // font-size: 2.5em ;
+    }
+    section button{
+        font-size: 2.8rem !important;
+        padding: 0.42em 0 !important;
+    }
+    section h1{
+        font-size: 2.8rem !important;
+    }
+}
