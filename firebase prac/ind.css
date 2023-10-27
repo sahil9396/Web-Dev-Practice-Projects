@@ -1,0 +1,131 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+}
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+    user-select: none;
+
+}
+
+main {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+h1 {
+    width: 25%;
+    min-width: 300px;
+    text-align: center;
+    font-size: 2rem;
+    font-weight: 800;
+
+}
+
+article {
+    margin-top: 2em;
+    width: 45%;
+    min-width: 300px;
+    max-width: 600px;
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(185, 184, 184);
+    gap: 1em;
+    padding: 2em 1em;
+    border-radius: 20px;
+    border: 5px solid black;
+}
+
+article img {
+    margin: 0 auto;
+    border-radius: 20px;
+    max-width: 90%;
+    /* width: 250px;
+    height: 250px; */
+    object-fit: cover;
+    object-position: center;
+}
+
+form {
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    color: white;
+    width: 90%;
+    gap: 1em;
+}
+
+form input,
+button {
+    width: 100%;
+    text-align: center;
+    border-radius: 20px;
+    font-size: 1.2rem;
+    outline: none;
+    padding: 1.33em;
+    border: none;
+}
+
+button {
+    background-color: rgb(133, 41, 59);
+    color: white;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+button:hover {
+    box-shadow: 0 10px 10px rgba(150, 150, 150, 0.5);
+    background-color: rgb(96, 30, 30);
+}
+
+label {
+    display: none;
+}
+
+.stored-data {
+    max-height: 300px;
+    overflow-y: auto;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5em;
+    width: 90%;
+    list-style-type: none;
+    margin: 0 auto;
+}
+
+.item {
+    flex-grow: 1;
+    text-align: center;
+
+    /* border: 3.5px solid black; */
+    font-size: 1.5rem;
+    font-weight: 400;
+    border-radius: 20px;
+    background-color: white;
+    padding: 0.5em;
+}
+
+.item:hover {
+    background-color: rgb(230, 203, 99);
+    border-radius: 20px;
+    box-shadow: 0 0 5px;
+}
+
+@media (width>=800px) {
+
+    form input,
+    button {
+        font-size: 1.6rem;
+        font-weight: 800;
+        padding: 1em;
+    }
+}
