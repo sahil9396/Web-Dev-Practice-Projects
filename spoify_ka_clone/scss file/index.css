@@ -254,17 +254,6 @@ aside .aside-child .Library .PLayslit {
   font-size: 1.5rem;
 }
 
-.play {
-  position: absolute;
-  left: 10%;
-  top: 10%;
-}
-
-.songlist-upper .play {
-  left: 0%;
-  top: 5%;
-}
-
 .songlist .songlist-upper {
   width: 95%;
   margin: 0 auto;
