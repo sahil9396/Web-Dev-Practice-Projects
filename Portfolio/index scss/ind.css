@@ -1,7 +1,11 @@
 * {
   margin: 0;
+  position: relative;
   padding: 0;
   box-sizing: border-box;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
 }
 
 html,
@@ -10,19 +14,64 @@ body {
   height: 100%;
 }
 
+main {
+  background-color: beige;
+}
+
 menu {
-  background-color: black;
+  background-color: rgb(101, 97, 97);
 }
 menu a {
-  font-size: 5vh;
+  font-size: 4vh;
   color: white;
+}
+menu a:hover i {
+  color: rgb(18, 87, 48);
+  transform: scale(1.2);
+  transition: all 0.5s ease;
+}
+
+.intro {
+  color: rgb(101, 97, 97);
+}
+.intro .highlight {
+  color: rgb(18, 87, 48);
+}
+.intro .name {
+  font-size: 8vh;
+  white-space: nowrap;
+  letter-spacing: 0.1vw;
+  color: rgb(18, 87, 48);
+  font-family: "Futura Now Headline", "Lucida Sans", Tahoma, sans-serif;
+}
+.intro .about-me {
+  margin: 1vh 0;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  font-size: 1.35vw;
+}
+.intro .specialization {
+  color: white;
+  font-size: 1.7vw;
+  line-height: 3.419vw;
+}
+.intro .specialization .Inhigh {
+  color: rgb(249, 249, 20);
+}
+
+main {
+  max-height: 100vh;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  justify-content: flex-end;
 }
 
 menu {
   position: fixed;
   left: 5%;
-  top: 30vh;
+  top: 31.9vh;
   border-radius: 20px;
+  z-index: 100;
 }
 menu ul {
   list-style: none;
@@ -46,8 +95,6 @@ menu ul li a span {
 .container {
   width: 50%;
   height: 100vh;
-  position: absolute;
-  right: 0%;
   overflow: hidden;
   display: flex;
   justify-content: center;
@@ -61,4 +108,47 @@ menu ul li a span {
      object-fit: cover;
   -o-object-position: center;
      object-position: center;
+}
+
+.at-angle {
+  position: absolute;
+  left: 37%;
+  z-index: 2;
+  width: 10%;
+  height: 150vh;
+  background-color: beige;
+  transform-origin: 50% 95%;
+  transform: rotateZ(6deg) translate(120%, -10%);
+}
+
+.intro {
+  position: absolute;
+  top: 30vh;
+  left: 9.5vw;
+  width: 50%;
+  z-index: 30;
+}
+
+.specialization {
+  padding: 1vh;
+  padding-left: 2.5vw;
+  width: 90%;
+  background-color: rgb(101, 97, 97);
+  border-radius: 25px;
+  display: flex;
+  align-items: center;
+  margin-bottom: 1vh;
+}
+.specialization img {
+  height: 5%;
+  width: 5%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: center;
+     object-position: center;
+  margin-left: 0.9vw;
+}
+.specialization img .canva {
+  display: block;
+  border-radius: 10px;
 }/*# sourceMappingURL=ind.css.map */

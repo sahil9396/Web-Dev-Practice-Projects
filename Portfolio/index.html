@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,28 +8,62 @@
     <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
     <link rel="stylesheet" href="./index scss/ind.css">
 </head>
+
 <body>
     <main>
         <div class="at-angle"></div>
         <menu>
             <ul>
-                <li><a href="#">
-                    <i class="ri-home-fill"></i>
-                    <span>Home</span>
-                </a></li>
-                <li><a href="#">
-                    <i class="ri-gallery-fill"></i>
-                    <span>Arts</span>
-                </a></li>
-                <li><a href="#">
-                    <i class="ri-list-check-3"></i>
-                    <span>Projects</span>
-                </a></li>
+                <li><a title="Home" href="#">
+                        <i class="ri-home-fill"></i>
+                        <span>Home</span>
+                    </a></li>
+                <li><a title="Instagram" href="#">
+                        <i class="ri-instagram-fill"></i>
+                        <span>Instagram</span>
+                    </a></li>
+                <li><a title="Linkedin" href="#">
+                        <i class="ri-linkedin-box-fill"></i>
+                        <span>Linkedin</span>
+                    </a></li>
+                <li><a title="Art Gallery" href="#">
+                        <i class="ri-gallery-fill"></i>
+                        <span>Arts</span>
+                    </a></li>
+                <li><a title="Project List" href="#">
+                        <i class="ri-list-check-3"></i>
+                        <span>Projects</span>
+                    </a></li>
             </ul>
         </menu>
+        <div class="intro">
+            <p class="name">Sahil Srikanth Shinde</p>
+            <p class="about-me">
+                "Hi,I specialize in <span class="highlight">frontend development</span> and <span
+                    class="highlight">digital art</span>. I'm passionate about creating &nbsp immersive online experiences.
+                Let's connect and collaborate!"
+            </p>
+            <p class="specialization">
+                My &nbsp<span class="Inhigh">Arsenal</span> &nbsp is made-up of 
+
+                <img src="python.png" alt="Python">
+                <img src="c-.png" alt="C++">
+                <img src="html.png" alt="html">
+                <img src="css-3.png" alt="css">
+                <img src="js.png" alt="JavaScript">
+                <img src="sass.png" alt="ScsS">
+                <img src="data:image/png;base64,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" class="canva" alt="">
+            </p>
+            <p class="specialization">
+                As a &nbsp<span class="Inhigh"> Artist</span>  
+                <img src="photoshop.png" alt="PhOtoshop">
+                <img src="https://www.blender.org/wp-content/uploads/2015/03/blender_logo_socket-1.png" alt="">
+            </p>
+        </div>
         <div class="container">
             <img src="mine.jpg" alt="Sahi Srikanth Shinde">
         </div>
     </main>
 </body>
+
 </html>

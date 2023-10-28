@@ -1,8 +1,17 @@
+main {
+    max-height: 100vh;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    justify-content: flex-end;
+}
+
 menu {
     position: fixed;
     left: 5%;
-    top: 30vh;
+    top: 31.9vh;
     border-radius: 20px;
+    z-index: 100;
 
     ul {
         list-style: none;
@@ -31,8 +40,6 @@ menu {
 .container {
     width: 50%;
     height: 100vh;
-    position: absolute;
-    right: 0%;
     overflow: hidden;
     display: flex;
     justify-content: center;
@@ -47,3 +54,48 @@ menu {
     }
 }
 
+.at-angle {
+    position: absolute;
+    left: 37%;
+    z-index: 2;
+    width: 10%;
+    height: 150vh;
+    background-color: beige;
+    transform-origin: 50% 95%;
+    transform: rotateZ(6deg) translate(120%, -10%);
+}
+
+.intro {
+    position: absolute;
+    top: 30vh;
+    left: 9.5vw;
+    width: 50%;
+    z-index: 30;
+    // background-color: crimson;
+}
+
+.specialization{
+    // margin-right: 10vw;
+    padding: 1vh;
+    padding-left: 2.5vw;
+    // right: 8%;
+    width: 90%;
+    background-color:rgb(101, 97, 97);
+    border-radius: 25px;
+    display: flex;
+    align-items: center;
+    margin-bottom: 1vh;
+
+    img{
+        height: 5%;
+        width: 5%;
+        object-fit: cover;
+        object-position: center;
+        margin-left:0.9vw;
+
+        .canva{
+            display: block;
+            border-radius: 10px;
+        }
+    }
+}

@@ -1,7 +1,9 @@
 * {
     margin: 0;
+    position: relative;
     padding: 0;
     box-sizing: border-box;
+    user-select: none;
 }
 
 html,
@@ -10,12 +12,56 @@ body {
     height: 100%;
 }
 
-menu{
-    background-color: black;
+main {
+    background-color: beige;
+}
 
-    a{
-        font-size: 5vh;
+menu {
+    background-color: rgb(101, 97, 97);
+
+    a {
+        font-size: 4vh;
         color: white;
+
+        &:hover i {
+            color: rgb(18, 87, 48);
+            transform: scale(1.2);
+            transition: all 0.5s ease;
+        }
     }
 
+}
+
+.intro {
+    color: rgb(101, 97, 97);
+
+    .highlight {
+        color: rgb(18, 87, 48);
+    }
+
+    .name {
+        font-size: 8vh;
+        white-space: nowrap;
+        letter-spacing: 0.1vw;
+        // font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        color: rgb(18, 87, 48);
+        font-family: "Futura Now Headline", "Lucida Sans", Tahoma, sans-serif;
+    }
+
+    .about-me {
+        margin: 1vh 0;
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        font-size: 1.35vw;
+    }
+
+    .specialization {
+
+        color: white;
+        font-size: 1.7vw;
+        line-height: 3.419vw;
+
+        .Inhigh {
+            color: rgb(249, 249, 20);
+        }
+    }
 }
