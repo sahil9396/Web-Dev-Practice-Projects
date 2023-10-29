@@ -35,6 +35,24 @@ function Locomotive_Animation() {
 
 Locomotive_Animation();
 
+const rotation_of_I = () => {
+    document.querySelectorAll("menu li").forEach(element => {
+        element.addEventListener("mouseenter", () => {
+            gsap.to(element, {
+                color:"CAA74E",
+                transform: `rotateZ(${Math.floor(Math.random() * 180)}deg) scale(${Math.random() * 1.5 + 1})`,
+            })
+        })
+        element.addEventListener("mouseleave", () => {
+            gsap.to(element, {
+                transform: "rotateZ(0deg) scale(1)",
+            })
+        })
+    })
+}
+
+rotation_of_I();
+
 const Landing_Animation = (what) => {
     gsap.from(what, {
         trigger: what,

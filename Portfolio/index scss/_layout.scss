@@ -18,6 +18,23 @@
     object-position: center;
 }
 
+:root {
+    --len:100px;
+}
+.cursor{
+    height: var(--len);
+    width: var(--len);
+    position: fixed;
+    padding: 50px;
+    font-size: 0.8rem;
+    border-radius: 50%;
+    z-index: 200;
+    @include centering_across(row);
+    transform: translate(-50% , -50%);
+    opacity: 0;
+    transform: scale(0);
+}
+
 menu {
     position: fixed;
     top: 0;
@@ -46,7 +63,6 @@ menu {
             justify-content: flex-start;
             gap: 1vw;
             text-decoration: none;
-
             span {
                 display: none;
             }
@@ -98,11 +114,13 @@ main {
         }
     }
 }
-@include response(800px){
-    menu{
+
+@include response(800px) {
+    menu {
         height: 80px;
     }
 }
+
 @include response(1000px) {
 
     main {
@@ -120,7 +138,7 @@ main {
         padding-left: 5vw;
     }
 
-    .name{
+    .name {
         text-align: start;
     }
 

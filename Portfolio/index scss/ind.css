@@ -15,51 +15,61 @@ body {
 }
 
 :root {
-  --gren: rgb(18, 87, 48);
-  --high: rgb(249, 249, 20);
+  --gren: #1c2517;
+  --high: #FFDE82;
+  --light_brown: #CAA74E;
+  --dark_brown: #917319;
+  --len: 100px;
+}
+
+.cursor {
+  background-color: var(--dark_brown);
+  color: white;
+  text-transform: uppercase;
 }
 
 menu {
-  background-color: rgb(0, 0, 0);
+  background-color: var(--gren);
 }
 menu a {
   font-size: 3vh;
   color: white;
 }
 menu a:hover i {
-  color: rgb(18, 87, 48);
+  color: var(--light_brown);
   transform: scale(1.2);
   transition: all 0.5s ease;
 }
 
 .current {
-  color: rgb(18, 87, 48);
-}
-
-.current:hover {
-  color: white;
-  transition: all 0.2 ease;
+  color: var(--light_brown);
 }
 
 .intro {
   color: rgb(101, 97, 97);
+  opacity: 0;
+  transform: scale(0);
 }
 .intro .highlight {
   color: rgb(18, 87, 48);
 }
 .intro .name {
-  font-size: 7.5vw;
+  text-transform: uppercase;
+  font-size: 7vw;
+  position: relative;
+  right: 0.51em;
   letter-spacing: 0.1vw;
-  color: rgb(18, 87, 48);
+  color: var(--gren);
   white-space: nowrap;
   font-family: "Futura Now Headline", "Lucida Sans", Tahoma, sans-serif;
 }
 .intro .about-me {
   font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  color: var(--light_brown);
   font-size: 3.4vw;
 }
 .intro .specialization {
-  background-color: rgb(101, 97, 97);
+  background-color: var(--gren);
   color: white;
   font-size: 4.5vw;
 }
@@ -68,6 +78,7 @@ menu a:hover i {
   .intro .name {
     font-size: 300%;
     letter-spacing: 0.1vw;
+    right: 0em;
   }
   .intro .about-me {
     font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
@@ -79,6 +90,27 @@ menu a:hover i {
     line-height: 3.419vw;
   }
 }
+:root {
+  --len:100px;
+}
+
+.cursor {
+  height: var(--len);
+  width: var(--len);
+  position: fixed;
+  padding: 50px;
+  font-size: 0.8rem;
+  border-radius: 50%;
+  z-index: 200;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  transform: scale(0);
+}
+
 menu {
   position: fixed;
   top: 0;

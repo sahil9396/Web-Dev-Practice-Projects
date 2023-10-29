@@ -13,8 +13,11 @@ body {
 }
 
 :root {
-    --gren: rgb(18, 87, 48);
-    --high: rgb(249, 249, 20);
+    --gren: #1c2517;
+    --high: #FFDE82;
+    --light_brown: #CAA74E;
+    --dark_brown: #917319;
+    --len: 100px;
 }
 
 @mixin new_response($size) {
@@ -23,15 +26,22 @@ body {
     }
 }
 
+.cursor {
+    background-color: var(--dark_brown);
+    color: white;
+    text-transform: uppercase;
+
+}
+
 menu {
-    background-color: rgb(0, 0, 0);
+    background-color: var(--gren);
 
     a {
         font-size: 3vh;
         color: white;
 
         &:hover i {
-            color: rgb(18, 87, 48);
+            color: var(--light_brown);
             transform: scale(1.2);
             transition: all 0.5s ease;
         }
@@ -41,38 +51,38 @@ menu {
 
 .current {
     // border-bottom: 2px solid rgb(18, 87, 48) ;
-    color: rgb(18, 87, 48);
+    color: var(--light_brown);
 
 }
-
-.current:hover {
-    color: white;
-    transition: all 0.2 ease;
-}
-
 
 .intro {
     color: rgb(101, 97, 97);
+    opacity: 0;
+    transform: scale(0);
 
     .highlight {
         color: rgb(18, 87, 48);
     }
 
     .name {
-        font-size: 7.5vw;
+        text-transform: uppercase;
+        font-size: 7vw;
+        position: relative;
+        right: 0.51em;
         letter-spacing: 0.1vw;
-        color: rgb(18, 87, 48);
+        color: var(--gren);
         white-space: nowrap;
         font-family: "Futura Now Headline", "Lucida Sans", Tahoma, sans-serif;
     }
 
     .about-me {
         font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        color: var(--light_brown);
         font-size: 3.4vw;
     }
 
     .specialization {
-        background-color: rgb(101, 97, 97);
+        background-color: var(--gren);
         color: white;
         font-size: 4.5vw;
 
@@ -87,6 +97,8 @@ menu {
         .name {
             font-size: 300%;
             letter-spacing: 0.1vw;
+            right: 0em;
+
         }
 
         .about-me {
