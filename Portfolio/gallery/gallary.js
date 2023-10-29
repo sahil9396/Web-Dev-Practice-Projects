@@ -35,41 +35,42 @@ function Locomotive_Animation() {
 
 Locomotive_Animation();
 
-const Landing_Animation =()=>{
-    gsap.from(".entry" , {
-        trigger:".entry",
-        y:100,
-        opacity:0,
-        duration:0.5,
-        delay:0.51
+const Landing_Animation = (what) => {
+    gsap.from(what, {
+        trigger: what,
+        y: 100,
+        opacity: 0,
+        duration: 0.5,
+        delay: 0.51
     })
 }
-const Scroling_Animation =()=>{
+const Scroling_Animation = () => {
     // gsap.to(".grad" , {
     //     opacity:1,
-    //     duration:1,
-    //     ScrollTrigger:{
+    //     duration:0.5,
+    //     scrollTrigger:{
     //         trigger:".entry",
-    //         start:"top 80%",
-    //         end:"bottom 0%",
+    //         scroller:"main",
+    //         start:"top 5%",
+    //         end:"top -40%",
     //         markers:true,
     //         scrub:2
     //     }
     // })
-    gsap.from(".sm" , {
-        // y:-200,
-        // trigger:".sm",
-        opacity:0,
-        delay:1,
-        ScrollTrigger:{
-            trigger:".sm",
-            start:"top 100%",
-            end:"top 20%",
-            markers:true,
-            scrub:true
+    gsap.to(".lower", {
+        opacity: 1,
+        duration: 0.51,
+        // delay: 1,
+        scrollTrigger: {
+            trigger: ".lower",
+            scroller: "main",
+            start: "top 80%",
+            end: "top 0%",
+            scrub: 2
         }
     })
 }
 
-Landing_Animation();
+Landing_Animation(".entry");
+Landing_Animation("menu");
 Scroling_Animation();

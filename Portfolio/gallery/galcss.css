@@ -117,7 +117,7 @@ menu ul li a span {
 
     display: flex;
     justify-content: space-between;
-
+    opacity: 0;
 }
 
 .other-images {
