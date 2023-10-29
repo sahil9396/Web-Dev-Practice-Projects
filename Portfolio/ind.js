@@ -12,7 +12,7 @@ gsap.from("menu , menu i ,menu img ", {
 })
 
 // hovering on the menu icon 
-document.querySelectorAll("menu li").forEach(element => {
+document.querySelectorAll("menu li , .specialization img").forEach(element => {
     element.addEventListener("mouseenter", () => {
         gsap.to(element, {
             transform: `rotateZ(${Math.floor(Math.random() * 180)}deg) scale(${Math.random() * 1.5 + 1})`,
@@ -64,11 +64,11 @@ const condition_on_mouse = () => {
             transform: "rotateZ(0deg) scale(1)",
             filter: "none",
         })
-        gsap.to(".intro", {
-            duration: 0.1,
-            opacity: 0,
-            transform: `scale(${0})`
-        })
+        // gsap.to(".intro", {
+        //     duration: 0.1,
+        //     opacity: 0,
+        //     transform: `scale(${0})`
+        // })
     })
     document.addEventListener("mousemove", ele => {
         gsap.to(cu, {
