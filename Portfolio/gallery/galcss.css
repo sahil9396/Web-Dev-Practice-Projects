@@ -17,6 +17,9 @@ body {
 
 /* font-size: 4vh; */
 
+main {
+    width: 100%;
+}
 
 menu {
     max-width: 500px;
@@ -78,21 +81,31 @@ menu ul li a span {
 
 }
 
+
 .homescreen {
     width: 100%;
     height: 100vh;
     max-width: 1620px;
     margin: 0 auto;
     border-radius: 20px;
-
     overflow: hidden;
 }
 
+.grad {
+    width: 100%;
+    height: 200%;
+    position: absolute;
+    background: black;
+    z-index: 10;
+    opacity: 0;
+}
 .homescreen img {
     height: 100%;
     width: 100%;
     object-fit: cover;
-    object-position: center;
+    border-radius: 20px;
+    object-position: 50% -50%;
+    color: black;
 }
 
 .lower {
@@ -127,6 +140,7 @@ menu ul li a span {
     height: 100%;
     width: 100%;
     object-fit: cover;
+    border-radius: 20px;
     object-position: 50% 15%;
 }
 
@@ -157,6 +171,7 @@ menu ul li a span {
 .rightthing img {
     height: 100%;
     width: 100%;
+    border-radius: 20px;
     object-fit: cover;
     object-position: center;
 }
@@ -169,7 +184,8 @@ menu ul li a span {
         z-index: 100;
         top: 3.5vh;
     }
-    menu a{
+
+    menu a {
         font-size: 1rem;
     }
 
