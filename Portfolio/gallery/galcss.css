@@ -17,6 +17,15 @@ body {
 
 /* font-size: 4vh; */
 
+.current {
+    color: rgb(18, 87, 48);
+}
+
+.current:hover {
+    color: white;
+    transition: all 0.2 ease;
+}
+
 main {
     width: 100%;
 }
@@ -99,6 +108,7 @@ menu ul li a span {
     z-index: 10;
     opacity: 0;
 }
+
 .homescreen img {
     height: 100%;
     width: 100%;

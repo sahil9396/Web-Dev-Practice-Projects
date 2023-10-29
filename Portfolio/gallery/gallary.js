@@ -70,7 +70,6 @@ const Scroling_Animation = () => {
         }
     })
 }
-
 Landing_Animation(".entry");
 Landing_Animation("menu");
 Scroling_Animation();
