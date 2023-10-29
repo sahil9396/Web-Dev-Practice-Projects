@@ -1,0 +1,270 @@
+* {
+    margin: 0;
+    padding: 0;
+    position: relative;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+}
+
+:root {
+    --hei: 80vh;
+}
+
+/* font-size: 4vh; */
+
+
+menu {
+    max-width: 500px;
+    position: fixed;
+    border-radius: 20px;
+    left: 50%;
+    z-index: 100;
+    top: 3.5vh;
+    transform: translate(-50%, -50%);
+    overflow: hidden;
+}
+
+menu ul {
+    list-style: none;
+    display: flex;
+    padding: 1.2vh 4vw;
+    gap: 2vw;
+    background-color: rgb(101, 97, 97);
+
+}
+
+/* menu ul li {
+    margin: 1vh 0;
+} */
+
+menu ul li a {
+    display: flex;
+    justify-content: flex-start;
+    gap: 1vw;
+    text-decoration: none;
+}
+
+menu a {
+    color: white;
+}
+
+menu a:hover i {
+    color: rgb(18, 87, 48);
+    transform: scale(1.2);
+    transition: all 0.5s ease;
+}
+
+menu ul li a span {
+    display: none;
+}
+
+
+.image-box {
+    width: 80%;
+    min-height: 100vh;
+
+    margin: 0 auto;
+    padding-top: 7vh;
+    padding-bottom: 2vh;
+
+    display: flex;
+    flex-direction: column;
+    gap: 1vh;
+
+}
+
+.homescreen {
+    width: 100%;
+    height: 100vh;
+    max-width: 1620px;
+    margin: 0 auto;
+    border-radius: 20px;
+
+    overflow: hidden;
+}
+
+.homescreen img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+.lower {
+    width: 100%;
+    min-height: 70vh;
+    max-width: 1620px;
+    margin: 0 auto;
+    /* margin-bottom: 2vh; */
+
+    display: flex;
+    justify-content: space-between;
+
+}
+
+.other-images {
+    width: 38%;
+    /* height: 100%; */
+    display: flex;
+    flex-direction: column;
+    gap: 1vh;
+}
+
+.other-images .box {
+    height: 50%;
+    width: 100%;
+    border-radius: 20px;
+
+    overflow: hidden;
+}
+
+.box img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    object-position: 50% 15%;
+}
+
+.god {
+    object-fit: contain;
+    transform: scale(1);
+}
+
+
+.rightt {
+    display: flex;
+    width: 60%;
+    /* height: 30vh; */
+    justify-content: space-between;
+    gap: 1vw;
+}
+
+
+.rightthing {
+    /* height: 100%; */
+    width: 49%;
+    overflow: hidden;
+    margin-bottom: 1vh;
+    border-radius: 20px;
+
+}
+
+.rightthing img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+@media (max-width:500px) {
+
+
+    menu {
+        left: 50%;
+        z-index: 100;
+        top: 3.5vh;
+    }
+    menu a{
+        font-size: 1rem;
+    }
+
+    .homescreen {
+        height: 40vh;
+    }
+
+    .homescreen img {
+        object-fit: cover;
+        object-position: center;
+    }
+
+    .lower {
+        /* height: 70vh; */
+        margin-bottom: 0vh;
+
+        flex-direction: column;
+        justify-content: flex-start;
+    }
+
+    .other-images {
+        width: 100%;
+        /* height: 100%; */
+        flex-direction: row;
+        gap: 1vh;
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .other-images .box {
+        height: 100%;
+        width: 48%;
+    }
+
+    .box img {
+        /* height: 100%;
+        width: 100%; */
+        object-fit: contain;
+        /* object-position: 50% 15%; */
+        object-position: center;
+    }
+
+    .rightt {
+        display: flex;
+        width: 100%;
+        height: 30vh;
+        justify-content: space-between;
+        border-radius: 20px;
+    }
+
+    .rightthing {
+        height: 100%;
+        width: 48%;
+    }
+
+    .rightthing img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+    }
+}
+
+@media(501px<=width <=750px) {
+    menu {
+        font-size: 4vw;
+    }
+}
+
+@media(width < 1400px) {
+    menu {
+        font-size: 2rem;
+    }
+}
+
+@media(1400px<width) {
+    menu {
+        font-size: 2rem;
+    }
+
+    menu {
+        position: fixed;
+        left: 5vw;
+        z-index: 100;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        overflow: hidden;
+    }
+
+    menu ul {
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+        padding: 1.2em;
+        gap: 2vw;
+        background-color: rgb(101, 97, 97);
+
+    }
+}
