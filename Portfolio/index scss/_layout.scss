@@ -1,103 +1,96 @@
 @mixin response($size) {
-    @media (max-width : $size) {
+    @media (min-width : $size) {
         @content;
     }
 }
 
-main {
-    height: 100vh;
-    position: relative;
-    overflow: hidden;
+@mixin centering_across($dire) {
     display: flex;
-    justify-content: flex-end;
+    flex-direction: $dire;
+    align-items: center;
+    justify-content: center;
+}
+
+@mixin image_prp($wi , $he) {
+    width: $wi;
+    height: $he;
+    object-fit: cover;
+    object-position: center;
 }
 
 menu {
     position: fixed;
-    left: 5%;
-    top: 29vh;
-    border-radius: 20px;
+    top: 0;
     z-index: 100;
+    padding: 0 3vw;
+    width: 100%;
+    @include centering_across(row);
+    justify-content: space-between;
+    height: 50px;
+
+    img {
+        // @include image_prp(8.5%, 8.5%);
+        max-width: 50px;
+        max-height: 50px;
+    }
 
     ul {
         list-style: none;
         display: flex;
-        flex-direction: column;
-        // align-items: center;
-        padding: 1vh;
+        justify-content: center;
+        padding: 1.5vh 0;
+        gap: 2.3vw;
 
-        li {
-            margin: 1vh 0;
+        li a {
+            display: flex;
+            justify-content: flex-start;
+            gap: 1vw;
+            text-decoration: none;
 
-            a {
-                display: flex;
-                justify-content: flex-start;
-                gap: 1vw;
-                text-decoration: none;
-
-                span {
-                    display: none;
-                }
+            span {
+                display: none;
             }
         }
     }
 }
 
+main {
+    max-width: 1434px;
+    margin: 0 auto;
+    min-height: 100vh;
+    @include centering_across(column);
+}
+
 .container {
-    width: 50%;
-    height: 100vh;
-    overflow: hidden;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    width: 80%;
+    @include centering_across(row);
 
     img {
-        width: 100%;
-        height: 100%;
-        margin-left: 10vw;
-        object-fit: cover;
-        object-position: center;
+        @include image_prp(70%, 70%);
     }
 }
 
-.at-angle {
-    position: absolute;
-    left: 37%;
-    z-index: 2;
-    width: 10%;
-    height: 150vh;
-    background-color: beige;
-    transform-origin: 50% 95%;
-    transform: rotateZ(6deg) translate(120%, -10%);
+.intro {
+    width: 70%;
+    max-width: 700px;
 }
 
-.intro {
-    position: absolute;
-    top: 30vh;
-    left: 9.5vw;
-    width: 50%;
-    z-index: 30;
-    // background-color: crimson;
+.about-me {
+    margin: 2.3vh 0;
 }
 
 .specialization {
-    // margin-right: 10vw;
-    padding: 1vh;
-    padding-left: 2.5vw;
-    // right: 8%;
-    width: 90%;
-    background-color: rgb(101, 97, 97);
+    padding: 0.5em;
+    // padding-left: 2.5vw;
+    width: 100%;
     border-radius: 25px;
-    display: flex;
-    align-items: center;
+    @include centering_across(row);
     margin-bottom: 1vh;
 
     img {
-        height: 5%;
-        width: 5%;
-        object-fit: cover;
-        object-position: center;
-        margin-left: 0.9vw;
+        @include image_prp(7.5%, 7.5%);
+
+        margin-left: 1.5vw;
 
         .canva {
             display: block;
@@ -105,76 +98,47 @@ menu {
         }
     }
 }
-
-@include response(400px) {
+@include response(800px){
+    menu{
+        height: 80px;
+    }
+}
+@include response(1000px) {
 
     main {
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-    }
-
-    menu {
-        left: 13%;
-        top: 2vh;
-        padding: 0 1.5vw;
-
-        ul {
-            flex-direction: row;
-            gap: 5vw;
-        }
-    }
-
-
-    .at-angle {
-        display: none;
+        @include centering_across(row-reverse);
+        justify-content: space-between;
     }
 
     .container {
-        order: 2;
-        img {
-            border-radius: 50%;
-            width: 100%;
-            height: 30%;
-            margin-left: 0;
-            object-fit: cover;
-            object-position: center;
-        }
+        padding-left: 5vw;
+        width: 48%;
     }
 
-
     .intro {
-        order: 1;
-        position: relative;
-        // top: 0vh;
-        left: 0vw;
-        width: 50%;
-        z-index: 30;
-        // background-color: crimson;
+        width: 48%;
+        padding-left: 5vw;
+    }
+
+    .name{
+        text-align: start;
+    }
+
+    .about-me {
+        width: 100%;
+        margin: 3vh 0;
+        white-space: wrap;
     }
 
     .specialization {
-        padding: 1vh;
-        padding-left: 0vw;
-        background-color: rgb(101, 97, 97);
-        border-radius: 25px;
-        display: flex;
-        align-items: center;
-        margin-bottom: 0vh;
+        @include centering_across(row);
+        justify-content: flex-start;
+        margin-bottom: 2.6vh;
 
         img {
-            height: 5%;
-            width: 5%;
-            object-fit: cover;
-            object-position: center;
-            margin-left: 0;
-
-            .canva {
-                display: block;
-                border-radius: 10px;
-            }
+            height: 5.7%;
+            width: 5.7%;
         }
     }
-
 
 }

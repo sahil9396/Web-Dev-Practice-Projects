@@ -12,21 +12,22 @@ body {
     height: 100%;
 }
 
+:root {
+    --gren: rgb(18, 87, 48);
+    --high: rgb(249, 249, 20);
+}
+
 @mixin new_response($size) {
-    @media (max-width : $size) {
+    @media (min-width : $size) {
         @content;
     }
 }
 
-main {
-    background-color: beige;
-}
-
 menu {
-    background-color: rgb(101, 97, 97);
+    background-color: rgb(0, 0, 0);
 
     a {
-        font-size: 4vh;
+        font-size: 3vh;
         color: white;
 
         &:hover i {
@@ -58,58 +59,46 @@ menu {
     }
 
     .name {
-        font-size: 8vh;
-        white-space: nowrap;
+        font-size: 7.5vw;
         letter-spacing: 0.1vw;
-        // font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
         color: rgb(18, 87, 48);
+        white-space: nowrap;
         font-family: "Futura Now Headline", "Lucida Sans", Tahoma, sans-serif;
     }
 
     .about-me {
-        margin: 1vh 0;
         font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-        font-size: 1.35vw;
+        font-size: 3.4vw;
     }
 
     .specialization {
-
+        background-color: rgb(101, 97, 97);
         color: white;
-        font-size: 1.7vw;
-        line-height: 3.419vw;
+        font-size: 4.5vw;
 
-        .Inhigh {
-            color: rgb(249, 249, 20);
-        }
+        // .Inhigh {
+        //     color: rgb(249, 249, 20);
+        // }
     }
 }
 
-@include new_response(400px) {
+@include new_response(1000px) {
     .intro {
         .name {
-            font-size: 5vh;
-            white-space: nowrap;
+            font-size: 300%;
             letter-spacing: 0.1vw;
-            // font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-            color: rgb(18, 87, 48);
-            font-family: "Futura Now Headline", "Lucida Sans", Tahoma, sans-serif;
         }
 
         .about-me {
-            margin: 1vh 0;
             font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-            font-size: 1.35vw;
+            font-size: 1.35rem;
         }
 
         .specialization {
 
             color: white;
-            font-size: 1.7vw;
+            font-size: 1.59rem;
             line-height: 3.419vw;
-
-            .Inhigh {
-                color: rgb(249, 249, 20);
-            }
         }
     }
 }

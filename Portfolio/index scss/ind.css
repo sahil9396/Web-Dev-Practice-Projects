@@ -14,15 +14,16 @@ body {
   height: 100%;
 }
 
-main {
-  background-color: beige;
+:root {
+  --gren: rgb(18, 87, 48);
+  --high: rgb(249, 249, 20);
 }
 
 menu {
-  background-color: rgb(101, 97, 97);
+  background-color: rgb(0, 0, 0);
 }
 menu a {
-  font-size: 4vh;
+  font-size: 3vh;
   color: white;
 }
 menu a:hover i {
@@ -47,71 +48,60 @@ menu a:hover i {
   color: rgb(18, 87, 48);
 }
 .intro .name {
-  font-size: 8vh;
-  white-space: nowrap;
+  font-size: 7.5vw;
   letter-spacing: 0.1vw;
   color: rgb(18, 87, 48);
+  white-space: nowrap;
   font-family: "Futura Now Headline", "Lucida Sans", Tahoma, sans-serif;
 }
 .intro .about-me {
-  margin: 1vh 0;
   font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
-  font-size: 1.35vw;
+  font-size: 3.4vw;
 }
 .intro .specialization {
+  background-color: rgb(101, 97, 97);
   color: white;
-  font-size: 1.7vw;
-  line-height: 3.419vw;
-}
-.intro .specialization .Inhigh {
-  color: rgb(249, 249, 20);
+  font-size: 4.5vw;
 }
 
-@media (max-width: 400px) {
+@media (min-width: 1000px) {
   .intro .name {
-    font-size: 5vh;
-    white-space: nowrap;
+    font-size: 300%;
     letter-spacing: 0.1vw;
-    color: rgb(18, 87, 48);
-    font-family: "Futura Now Headline", "Lucida Sans", Tahoma, sans-serif;
   }
   .intro .about-me {
-    margin: 1vh 0;
     font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
-    font-size: 1.35vw;
+    font-size: 1.35rem;
   }
   .intro .specialization {
     color: white;
-    font-size: 1.7vw;
+    font-size: 1.59rem;
     line-height: 3.419vw;
   }
-  .intro .specialization .Inhigh {
-    color: rgb(249, 249, 20);
-  }
 }
-main {
-  height: 100vh;
-  position: relative;
-  overflow: hidden;
-  display: flex;
-  justify-content: flex-end;
-}
-
 menu {
   position: fixed;
-  left: 5%;
-  top: 29vh;
-  border-radius: 20px;
+  top: 0;
   z-index: 100;
+  padding: 0 3vw;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  justify-content: space-between;
+  height: 50px;
+}
+menu img {
+  max-width: 50px;
+  max-height: 50px;
 }
 menu ul {
   list-style: none;
   display: flex;
-  flex-direction: column;
-  padding: 1vh;
-}
-menu ul li {
-  margin: 1vh 0;
+  justify-content: center;
+  padding: 1.5vh 0;
+  gap: 2.3vw;
 }
 menu ul li a {
   display: flex;
@@ -123,125 +113,104 @@ menu ul li a span {
   display: none;
 }
 
-.container {
-  width: 50%;
-  height: 100vh;
-  overflow: hidden;
+main {
+  max-width: 1434px;
+  margin: 0 auto;
+  min-height: 100vh;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
   align-items: center;
+  justify-content: center;
+}
+
+.container {
+  width: 80%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
 }
 .container img {
-  width: 100%;
-  height: 100%;
-  margin-left: 10vw;
+  width: 70%;
+  height: 70%;
   -o-object-fit: cover;
      object-fit: cover;
   -o-object-position: center;
      object-position: center;
-}
-
-.at-angle {
-  position: absolute;
-  left: 37%;
-  z-index: 2;
-  width: 10%;
-  height: 150vh;
-  background-color: beige;
-  transform-origin: 50% 95%;
-  transform: rotateZ(6deg) translate(120%, -10%);
 }
 
 .intro {
-  position: absolute;
-  top: 30vh;
-  left: 9.5vw;
-  width: 50%;
-  z-index: 30;
+  width: 70%;
+  max-width: 700px;
+}
+
+.about-me {
+  margin: 2.3vh 0;
 }
 
 .specialization {
-  padding: 1vh;
-  padding-left: 2.5vw;
-  width: 90%;
-  background-color: rgb(101, 97, 97);
+  padding: 0.5em;
+  width: 100%;
   border-radius: 25px;
   display: flex;
+  flex-direction: row;
   align-items: center;
+  justify-content: center;
   margin-bottom: 1vh;
 }
 .specialization img {
-  height: 5%;
-  width: 5%;
+  width: 7.5%;
+  height: 7.5%;
   -o-object-fit: cover;
      object-fit: cover;
   -o-object-position: center;
      object-position: center;
-  margin-left: 0.9vw;
+  margin-left: 1.5vw;
 }
 .specialization img .canva {
   display: block;
   border-radius: 10px;
 }
 
-@media (max-width: 400px) {
-  main {
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-  }
+@media (min-width: 800px) {
   menu {
-    left: 13%;
-    top: 2vh;
-    padding: 0 1.5vw;
+    height: 80px;
   }
-  menu ul {
-    flex-direction: row;
-    gap: 5vw;
-  }
-  .at-angle {
-    display: none;
+}
+@media (min-width: 1000px) {
+  main {
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+    justify-content: center;
+    justify-content: space-between;
   }
   .container {
-    order: 2;
-  }
-  .container img {
-    border-radius: 50%;
-    width: 100%;
-    height: 30%;
-    margin-left: 0;
-    -o-object-fit: cover;
-       object-fit: cover;
-    -o-object-position: center;
-       object-position: center;
+    padding-left: 5vw;
+    width: 48%;
   }
   .intro {
-    order: 1;
-    position: relative;
-    left: 0vw;
-    width: 50%;
-    z-index: 30;
+    width: 48%;
+    padding-left: 5vw;
+  }
+  .name {
+    text-align: start;
+  }
+  .about-me {
+    width: 100%;
+    margin: 3vh 0;
+    white-space: wrap;
   }
   .specialization {
-    padding: 1vh;
-    padding-left: 0vw;
-    background-color: rgb(101, 97, 97);
-    border-radius: 25px;
     display: flex;
+    flex-direction: row;
     align-items: center;
-    margin-bottom: 0vh;
+    justify-content: center;
+    justify-content: flex-start;
+    margin-bottom: 2.6vh;
   }
   .specialization img {
-    height: 5%;
-    width: 5%;
-    -o-object-fit: cover;
-       object-fit: cover;
-    -o-object-position: center;
-       object-position: center;
-    margin-left: 0;
-  }
-  .specialization img .canva {
-    display: block;
-    border-radius: 10px;
+    height: 5.7%;
+    width: 5.7%;
   }
 }/*# sourceMappingURL=ind.css.map */
