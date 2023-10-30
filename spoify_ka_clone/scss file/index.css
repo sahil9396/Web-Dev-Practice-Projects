@@ -321,7 +321,7 @@ footer {
   bottom: 0;
   height: 120px;
   width: 100%;
-  padding: 1.5em;
+  padding: 4em 7.5em;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -343,8 +343,8 @@ footer .item .image-contain img {
   width: 100%;
 }
 footer .control-center {
-  margin-left: 15em;
   width: 40%;
+  padding-bottom: 1em;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -360,11 +360,10 @@ footer .control-center input[type=range] {
   width: 100%;
 }
 footer .other-stuff {
-  width: 13.5%;
+  width: 18%;
   display: flex;
-  justify-content: space-evenly;
-  align-items: center;
-  gap: 0.5em;
+  justify-content: flex-end;
+  gap: 1.5em;
 }
 footer .other-stuff i {
   font-size: 1.5rem;

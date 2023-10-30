@@ -1,23 +1,19 @@
+gsap.registerPlugin(ScrollTrigger);
 
-// const url = 'https://spotify23.p.rapidapi.com/search/?q=%3CREQUIRED%3E&type=multi&offset=0&limit=10&numberOfTopResults=5';
-// const options = {
-// 	method: 'GET',
-// 	headers: {
-// 		'X-RapidAPI-Key': '3f34beb66fmsh24f5cf0e51aa28fp10c400jsn9c65b459f962',
-// 		'X-RapidAPI-Host': 'spotify23.p.rapidapi.com'
-// 	}
-// };
+let songs = [
+    { songname: "Warriyo - Mortals", filePath: "1.mp3", },
+    { songname: "Cielo - Huma-Huma", filePath: "2.mp3", },
+    { songname: "DEAF KEV - Invincible", filePath: "3.mp3", },
+    { songname: "Different Heaven & EH!DE - My Heart", filePath: "4.mp3", },
+    { songname: "Janji-Heroes-Tonight-feat", filePath: "5.mp3", },
+    { songname: "Rabba - Salam-e-Ishq", filePath: "2.mp3", },
+    { songname: "Sakhiyaan - Salam-e-Ishq", filePath: "2.mp3", },
+    { songname: "Bhula Dena - Salam-e-Ishq", filePath: "2.mp3", },
+    { songname: "Tumhari Kasam - Salam-e-Ishq", filePath: "2.mp3", },
+    // {songname: "Na Jaana - Salam-e-Ishq", filePath: "4.mp3", },
+];
 
-// fetch(url, options).then( (data)=>data.json() )
-// .catch( (erorr)=>{
-//     throw new Error("This is shit" , erorr);
-// } ).then( (data)=>{
-//     console.log(data);
-//     localStorage.setItem("songs" , JSON.stringify(data));
-// } ).catch( (erorr)=>{
-//     console.log("This is shit" , erorr);
-// } )
-
+let items = [];
 
 // remember that in local storage, the data is still stored
 function show() {
@@ -28,40 +24,103 @@ function show() {
 
 const dta = show();
 console.log(dta);
-
+var ongoing = 1;
 let container = document.querySelector(".songlist-down");
 let pau = Array.from(document.getElementsByClassName("ri-pause-circle-fill"));
 let pla = Array.from(document.getElementsByClassName("ri-play-circle-fill"));
+let skip = Array.from(document.getElementsByClassName("skio"));
 let change = document.querySelector(".changer");
 let main_button = document.querySelector(".play-pause-box");
-// pau.forEach(ele => {
-//     ele.addEventListener("click", () => {
-//         ele.className = "ri-play-circle-fill";
-//     })
+let dur = document.querySelector(".timeline");
+let vol = document.querySelector(".other-stuff .timeline");
 
-// })
+// music configuration
+let mus = new Audio(`${songs[ongoing - 1].filePath}`);
+mus.pause();
+mus.volume = vol.value/100;
 
-const changing_play_pause = (tag)=>{
-    tag.addEventListener("click", (event)=>{
-    console.log(event.target.className);
-    if (event.target.className == "ri-pause-circle-fill"){
-        event.target.className = "ri-play-circle-fill";
-    }
-    else{
-        event.target.className = "ri-pause-circle-fill";
+skip.forEach((elem) => {
+    elem.addEventListener("click", (e) => {
+        if ("ri-skip-left-fill" === e.target.classList[0]) {
+            ongoing--;
+            if (ongoing < 1) {
+                ongoing = 1;
+            }
+        }
+        else {
+            ongoing++;
+            if (ongoing > songs.length) {
+                ongoing = 1;
+            }
+        }
+        mus.setAttribute("src", `${songs[ongoing - 1].filePath}`);
+        mus.play();
+        pause_all();
+        items[ongoing - 1].className = "ri-pause-fill";
+        change.children[1].className = "ri-pause-circle-fill";
+        main_button.firstElementChild.className = "ri-pause-circle-fill";
+    })
+})
+
+
+document.addEventListener("readystatechange", (event) => {
+    if (event.target.readyState === "complete") {
+        all_function();
     }
 })
+
+const all_function = () => {
+
+    changing_play_pause(main_button.firstElementChild, change.children[1], items);
+    changing_play_pause(change.children[1], main_button.firstElementChild, items);
+    againdi();
+}
+const changing_play_pause = (tag, side_tag) => {
+    tag.addEventListener("click", (event) => {
+        if (event.target.className == "ri-pause-circle-fill") {
+            mus.pause();
+            side_tag.className = "ri-play-circle-fill";
+            // to_change[ongoing-1].className = "ri-play-fill";
+            event.target.className = "ri-play-circle-fill";
+            items[ongoing - 1].className = "ri-play-fill";
+        }
+        else {
+            mus.play();
+            items[ongoing - 1].className = "ri-pause-fill";
+            side_tag.className = "ri-pause-circle-fill";
+            event.target.className = "ri-pause-circle-fill";
+        }
+    })
 }
 
-changing_play_pause(main_button.firstElementChild);
-changing_play_pause(change.children[1]);
+mus.addEventListener("timeupdate", (e) => {
+    let tiem = parseInt((mus.currentTime / mus.duration) * 100);
+    if (tiem === 100) {
+        ongoing++;
+        if (ongoing > songs.length) {
+            ongoing = 1;
+        }
+        mus.src = songs[ongoing - 1].filePath;
+        mus.play();
+    }
+    console.log(mus.volume);
+    dur.value = tiem;
+})
+
+dur.addEventListener("change", (e) => {
+    mus.currentTime = dur.value * mus.duration / 100;
+})
+vol.addEventListener("change", (e) => {
+    mus.volume = vol.value/100;
+})
+
 const delete_all_content = (parents) => {
     Array.from(parents.children).forEach((ele, i) => {
         container.removeChild(ele);
     })
 }
 
-const show_display = (element) => {
+const show_display = (element, id) => {
     // Create the elements
     const ul = document.createElement('ul');
     ul.className = 'down-list';
@@ -69,9 +128,11 @@ const show_display = (element) => {
     const li1 = document.createElement('li');
     li1.className = 'item';
     const pauseIcon = document.createElement('i');
-    pauseIcon.className = 'ri-pause-fill';
+    pauseIcon.className = 'ri-play-fill';
+    pauseIcon.setAttribute("id", id);
     Click_listener(pauseIcon);
     li1.appendChild(pauseIcon);
+    items.push(pauseIcon);
 
     const li2 = document.createElement('li');
     li2.className = 'item';
@@ -128,33 +189,42 @@ const show_display = (element) => {
 
 }
 
-function againdi() {
-    delete_all_content(container);
-    dta.forEach((ele) => {
-        show_display(ele);
+const pause_all = () => {
+    items.forEach(lee => {
+        lee.className = "ri-play-fill";
     })
 }
 
 const Click_listener = (element) => {
-    element.addEventListener("click", () => {
+    element.addEventListener("click", (vev) => {
         if (element.className == "ri-play-fill") {
-
+            // ongoing = parseInt(element.attributes[1].nodeValue) + 1;
+            // mus.setAttribute("src", songs[ongoing - 1].filePath)
+            mus.play();
+            pause_all();
             element.className = "ri-pause-fill";
+            main_button.firstElementChild.className = "ri-pause-circle-fill";
+            change.children[1].className = "ri-pause-circle-fill";
+            gsap.from(element, {
+                duration: 0.5,
+                delay: 0.8,
+                color:"green",
+                transform:"scale(2)"
+            })
         }
         else {
+            mus.pause();
             element.className = "ri-play-fill";
-            // element.style.transform = "translate(50% , 50%);"
+            main_button.firstElementChild.className = "ri-play-circle-fill"
+            change.children[1].className = "ri-play-circle-fill"
         }
     })
 }
-
-againdi();
-
-
-// const msu = new Audio("spotify:artist:4lxfqrEsLX6N1N4OCSkILp");
-// msu.pause();
-
-// document.querySelector(".play-pause-box").addEventListener("click",()=>{
-//     msu.play();
-//     console.log("hi")
-// })
+function againdi() {
+    delete_all_content(container);
+    dta.forEach((ele, i) => {
+        if (i <= songs.length - 1) {
+            show_display(ele, i);
+        }
+    })
+}

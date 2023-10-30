@@ -267,7 +267,7 @@ menu ul li a span {
     }
 }
 
-@media(1400px<width) {
+@media(1400px < width) {
     menu {
         font-size: 2rem;
     }
