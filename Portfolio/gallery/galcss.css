@@ -183,7 +183,7 @@ menu ul li a span {
     object-position: center;
 }
 
-@media (max-width:500px) {
+@media (max-width:600px) {
 
 
     menu {
@@ -255,7 +255,7 @@ menu ul li a span {
     }
 }
 
-@media(501px<=width <=750px) {
+@media(501px<= width <=750px) {
     menu {
         font-size: 4vw;
     }
