@@ -25,9 +25,8 @@
 
 .main-container {
   width: 80%;
-  height: 100vh;
+  max-height: 100vh;
   margin: 0em auto;
-  overflow: hidden;
 }
 .main-container .black-thing {
   opacity: 0.5;
@@ -62,11 +61,12 @@
 .List-of-exc {
   border: 8px solid black;
   border-radius: 50px;
-  padding: 2.5em 0;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  overflow-y: auto;
+  height: 75vh;
   gap: 1em;
 }
 
