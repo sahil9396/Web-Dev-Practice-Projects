@@ -1,0 +1,92 @@
+@mixin centering($dire){
+    display: flex;
+    flex-direction: $dire;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.main-container {
+    width: 80%;
+    height: 100vh;
+    margin: 0em auto;
+    overflow: hidden;
+
+    .black-thing {
+        opacity: 0.5;
+        position: fixed;
+        top: 0%;
+        width: 100%;
+        left: 0%;
+        height: 100%;
+        z-index: 0;
+    }
+
+    img {
+        position: fixed;
+        top: 0;
+        left: -50%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+        z-index: -1;
+    }
+}
+
+.Part-Name {
+    z-index: 2;
+    width: 100%;
+    margin: 1.53em 0;
+    padding: 0.51em;
+    text-align: center;
+    border-radius: 50px;
+}
+
+.List-of-exc{
+    border: 8px solid black;
+    border-radius: 50px;
+    padding: 2.5em 0;
+    @include centering(column);
+    gap: 1em;
+}
+
+.Exc-Details{
+    width: 80%;
+    padding: 2em 0;
+    background-color: black;
+    border-radius: 50px;
+    @include centering(column);
+    gap: 1em;
+}
+
+.Exc-Name{
+    width: 80%;
+    border-radius: 50px;
+    background-color: white;
+    text-align: center;
+    font-size: 1.75rem;
+    color: black;
+    padding: 0.5em 0;
+}
+
+.details{
+    width: 80%;
+    @include centering(row);
+    justify-content: space-between;
+    color: black;
+    font-size: 1.15rem;
+}
+.Reps{
+    background-color: white;
+    width: 38%;
+    border-radius: 50px;
+    padding: 0.6em 0;
+    text-align: center;
+}
+.Weights{
+    text-align: center;
+    background-color: white;
+    border-radius: 50px;
+    width: 58%;
+    padding: 0.6em 0;
+}
