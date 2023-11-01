@@ -198,8 +198,8 @@ const pause_all = () => {
 const Click_listener = (element) => {
     element.addEventListener("click", (vev) => {
         if (element.className == "ri-play-fill") {
-            // ongoing = parseInt(element.attributes[1].nodeValue) + 1;
-            // mus.setAttribute("src", songs[ongoing - 1].filePath)
+            ongoing = parseInt(element.attributes[1].nodeValue) + 1;
+            mus.setAttribute("src", songs[ongoing - 1].filePath)
             mus.play();
             pause_all();
             element.className = "ri-pause-fill";
