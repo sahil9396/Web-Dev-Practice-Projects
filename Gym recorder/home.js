@@ -8,10 +8,12 @@ const apIley = {
 
 const app = initializeApp(apIley);
 const db = getDatabase(app);
-const place = ref(db , "Exc");
+const Days_Part = ref(db, "Days_of_Each_Part");
+const List_Of_part = ref(db, "List_of_excerises_of_Each_part");
 
 
 let to_store = document.querySelector(".List-of-exc");
+// let stored_data = document.querySelector(".List-of-exc");
 
 const exercisesText = `Back_workout
 Mid-row upper
@@ -58,13 +60,11 @@ Tricep push-down
 ******************************************
 
 `;
-
-// push(place, "Another one")
-
 const exerciseCategories = exercisesText.split('******************************************\n').filter(category => category.trim() !== '');
-
 const Exc = {};
 
+let reps_list = [];
+let weights_list = [];
 exerciseCategories.forEach(category => {
     const lines = category.trim().split('\n');
     const categoryName = lines[0].trim();
@@ -72,25 +72,8 @@ exerciseCategories.forEach(category => {
     Exc[categoryName] = exercises;
 });
 
-
-if (0) {
-    for (let iterator in Exc) {
-        pa = {
-            iterator: Exc[iterator]
-        }
-        // console.log(pa);
-        // push(place, pa);
-
-    }
-    const exact_location = ref(dataInDB, `Exc/${id}`)
-    remove(exact_location);
-}
-
-// let first = Exc["Back_workout"];
-// console.log(first)
-
 const create_display = (Entry) => {
-    
+
     // Create the main container div
     const excDetailsContainer = document.createElement('div');
     excDetailsContainer.classList.add('Exc-Details');
@@ -100,9 +83,9 @@ const create_display = (Entry) => {
     excNameDiv.classList.add('Exc-Name');
     excNameDiv.textContent = Entry;
 
-    // Create the details container div
-    const detailsContainer = document.createElement('div');
-    detailsContainer.classList.add('details');
+    // Create the details form element
+    const detailsForm = document.createElement('form'); // Change this to a form element
+    detailsForm.classList.add('details');
 
     // Create the Reps input element
     const repsInput = document.createElement('input');
@@ -116,33 +99,72 @@ const create_display = (Entry) => {
     weightsInput.setAttribute('placeholder', 'Weights ...');
     weightsInput.classList.add('Weights');
 
-    // Append the elements to the appropriate containers
-    detailsContainer.appendChild(repsInput);
-    detailsContainer.appendChild(weightsInput);
+    // Append the elements to the form element
+    detailsForm.appendChild(repsInput);
+    detailsForm.appendChild(weightsInput);
+
+    repsInput.addEventListener("click", (event) => {
+        // event.preventDefault();
+        console.log("Form submitted");
+    });
 
     excDetailsContainer.appendChild(excNameDiv);
-    excDetailsContainer.appendChild(detailsContainer);
+    excDetailsContainer.appendChild(detailsForm);
 
-    // Append the entire Exc-Details block to the document body
+    // Append the entire Exc-Details block to a parent element (e.g., 'to_store')
     to_store.appendChild(excDetailsContainer);
-
-}
+};
 
 const clear_content = () => {
     Array.from(to_store.children).forEach(ele => {
-        stored_data.removeChild(ele);
+        to_store.removeChild(ele);
     })
 }
 
-clear_content();
-const create_per = lsit =>{
-    lsit.forEach(element => {
-        create_display(element);
-        console.log(element)
+
+const create_per = lsit => {
+    document.addEventListener("DOMContentLoaded", () => {
+        clear_content();
+        lsit.forEach(element => {
+            create_display(element);
+            // console.log(element)
+        });
     });
 }
 
 create_per(Exc["Legs_workout_and_butt"]);
-// for (let iterator in Exc) {
-    // console.log(Exc[iterator])
-// }
+
+const Days_and_Excerise = () => {
+    let Day_Exc = Object.keys(Exc);
+    let days = ["monday", "tuesday", "wednesday", "thursday", "friday", "saturday"]
+    let p = {};
+    days.forEach((ele, i) => {
+        p[ele] = Day_Exc[i];
+    })
+    push(Days_Part, p);
+}
+const List_of_each_part = () => {
+    let part = {};
+    Day_Exc.forEach((element, i) => {
+        part[element] = Exc[element];
+        push(List_Of_part, part);
+        part = {};
+    });
+}
+const push_things = () => {
+    Days_and_Excerise();
+    List_of_each_part();
+}
+
+const val = () => {
+    onValue(List_Of_part, function (snapshot) {
+        if (snapshot.exists()) {
+            // console.log("there is something")
+
+        } else {
+            push_things();
+        }
+    })
+}
+
+val();
