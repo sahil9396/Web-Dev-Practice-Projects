@@ -10,6 +10,9 @@ const app = initializeApp(apIley);
 const db = getDatabase(app);
 const Days_Part = ref(db, "Days_of_Each_Part");
 const List_Of_part = ref(db, "List_of_excerises_of_Each_part");
+const Date_Exc = ref(db, "Date_Part");
+const Exc_reps = ref(db, "Date_Exc_reps");
+const Exc_weights = ref(db, "Date_Exc_weights");
 
 
 let to_store = document.querySelector(".List-of-exc");
@@ -72,7 +75,7 @@ exerciseCategories.forEach(category => {
     Exc[categoryName] = exercises;
 });
 
-const create_display = (Entry) => {
+const create_display = (Entry, id) => {
 
     // Create the main container div
     const excDetailsContainer = document.createElement('div');
@@ -92,20 +95,36 @@ const create_display = (Entry) => {
     repsInput.setAttribute('type', 'text');
     repsInput.setAttribute('placeholder', 'Reps ...');
     repsInput.classList.add('Reps');
+    repsInput.classList.add(id);
 
     // Create the Weights input element
     const weightsInput = document.createElement('input');
     weightsInput.setAttribute('type', 'text');
     weightsInput.setAttribute('placeholder', 'Weights ...');
     weightsInput.classList.add('Weights');
+    weightsInput.classList.add(id);
+
+
+    // This is to make form submit function working
+    const button = document.createElement('button');
+    button.style.display = "none"
 
     // Append the elements to the form element
+    detailsForm.appendChild(button);
     detailsForm.appendChild(repsInput);
     detailsForm.appendChild(weightsInput);
 
-    repsInput.addEventListener("click", (event) => {
-        // event.preventDefault();
-        console.log("Form submitted");
+    detailsForm.addEventListener("submit", (event) => {
+        event.preventDefault();
+        let v1 = (repsInput.value).trim();
+        if (v1 !== '') {
+            reps_list[id] = v1;
+        }
+        let v2 = weightsInput.value;
+        if (v1 !== '') {
+            weights_list[id] = v2;
+        }
+        check_array(reps_list);
     });
 
     excDetailsContainer.appendChild(excNameDiv);
@@ -121,17 +140,14 @@ const clear_content = () => {
     })
 }
 
-
 const create_per = lsit => {
     document.addEventListener("DOMContentLoaded", () => {
         clear_content();
-        lsit.forEach(element => {
-            create_display(element);
-            // console.log(element)
+        lsit.forEach((element, i) => {
+            create_display(element, i);
         });
     });
 }
-
 create_per(Exc["Legs_workout_and_butt"]);
 
 const Days_and_Excerise = () => {
@@ -160,11 +176,27 @@ const val = () => {
     onValue(List_Of_part, function (snapshot) {
         if (snapshot.exists()) {
             // console.log("there is something")
-
         } else {
             push_things();
         }
     })
 }
 
-val();
+// val();
+
+const check_array = (listt) => {
+    if (listt.length === Exc["Legs_workout_and_butt"].length) {
+        let ob2 = true;
+        for (let index = 0; index < listt.length; index++) {
+            if (listt[index]) {
+                console.log(listt[index]);
+            }
+            else {
+                console.log("false");
+                // ob2 = false;
+                break;
+            }
+        }
+        
+    }
+}
